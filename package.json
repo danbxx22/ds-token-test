@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "prepare": "pnpm codegen",
-    "codegen": "pnpm codegen:legacy && pnpm codegen:new",
-    "codegen:legacy": "panda codegen --config panda.config.legacy.ts",
-    "codegen:new": "panda codegen --config panda.config.new.ts",
+    "codegen": "pnpm codegen:role-first && pnpm codegen:property-first",
+    "codegen:role-first": "panda codegen --config panda.config.role-first.ts",
+    "codegen:property-first": "panda codegen --config panda.config.property-first.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

@@ -11,9 +11,9 @@ export default defineConfig({
   preflight: true,
   strictTokens: false,
   jsxFramework: 'react',
-  importMap: '@ds-token-test/styled-system-legacy',
-  outdir: 'styled-system-legacy',
-  include: ['./src/app/legacy/**/*.{js,jsx,ts,tsx}', './src/components/legacy/**/*.{js,jsx,ts,tsx}'],
+  importMap: '@ds-token-test/styled-system-role-first',
+  outdir: 'styled-system-role-first',
+  include: ['./src/app/role-first/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       tokens: {

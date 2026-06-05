@@ -1,11 +1,3 @@
-/**
- * 신규 시맨틱 컬러 — property-first 구조.
- * bg.neutral.subtle, border.critical.default, icon.positive.strong, text.neutral.default
- *
- * role 매핑: primary→neutral, error→critical, success→positive, warning→caution, info→informative
- * variant 매핑: low→subtle, base→muted/default, high→emphasized, highest→solid/strong
- * state 패턴: ghost.DEFAULT / ghost.hover / ghost.pressed
- */
 export const mildang = {
   bg: {
     neutral: {

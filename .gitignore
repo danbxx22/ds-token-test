@@ -2,8 +2,8 @@ node_modules
 dist
 .next
 styled-system
-styled-system-legacy
-styled-system-new
+styled-system-role-first
+styled-system-property-first
 .turbo
 *.tsbuildinfo
 

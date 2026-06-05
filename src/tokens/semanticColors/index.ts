@@ -1,16 +1,16 @@
-import { legacySemantic } from './legacy/semantic';
-import { baseLegacy } from './legacy/base';
-import { mildangLegacy } from './legacy/mildang';
+import { roleFirstSemantic } from './role-first/semantic';
+import { baseRoleFirst } from './role-first/base';
+import { mildangRoleFirst } from './role-first/mildang';
 
-const mergedBrand = { ...mildangLegacy, ...legacySemantic.brand };
+const mergedBrand = { ...mildangRoleFirst, ...roleFirstSemantic.brand };
 
 export const defineColorTokens = () => ({
-  ...baseLegacy,
-  primary: legacySemantic.primary,
-  inverse: legacySemantic.inverse,
-  warning: { ...baseLegacy.warning, ...legacySemantic.warning },
-  info: { ...baseLegacy.info, ...legacySemantic.info },
-  success: { ...baseLegacy.success, ...legacySemantic.success },
-  error: { ...baseLegacy.error, ...legacySemantic.error },
+  ...baseRoleFirst,
+  primary: roleFirstSemantic.primary,
+  inverse: roleFirstSemantic.inverse,
+  warning: { ...baseRoleFirst.warning, ...roleFirstSemantic.warning },
+  info: { ...baseRoleFirst.info, ...roleFirstSemantic.info },
+  success: { ...baseRoleFirst.success, ...roleFirstSemantic.success },
+  error: { ...baseRoleFirst.error, ...roleFirstSemantic.error },
   brand: mergedBrand,
 });

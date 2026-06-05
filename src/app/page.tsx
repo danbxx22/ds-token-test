@@ -11,10 +11,10 @@ export default function Home() {
 
       <div className={css({ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6' })}>
         <div className={css({ border: '1px solid', borderColor: 'primary.border.base', rounded: 'lg', p: '6' })}>
-          <h2 className={css({ fontSize: 'lg', fontWeight: 'semibold', mb: '4' })}>기존 명칭</h2>
+          <h2 className={css({ fontSize: 'lg', fontWeight: 'semibold', mb: '4' })}>role-first</h2>
           <div className={css({ display: 'flex', flexDir: 'column', gap: '2' })}>
             <Link
-              href="/legacy/dashboard"
+              href="/role-first/dashboard"
               className={css({
                 display: 'block',
                 p: '3',
@@ -28,7 +28,7 @@ export default function Home() {
               대시보드 →
             </Link>
             <Link
-              href="/legacy/signup"
+              href="/role-first/signup"
               className={css({
                 display: 'block',
                 p: '3',
@@ -45,10 +45,10 @@ export default function Home() {
         </div>
 
         <div className={css({ border: '1px solid', borderColor: 'border.neutral.default', rounded: 'lg', p: '6' })}>
-          <h2 className={css({ fontSize: 'lg', fontWeight: 'semibold', mb: '4' })}>신규 명칭</h2>
+          <h2 className={css({ fontSize: 'lg', fontWeight: 'semibold', mb: '4' })}>property-first</h2>
           <div className={css({ display: 'flex', flexDir: 'column', gap: '2' })}>
             <Link
-              href="/new/dashboard"
+              href="/property-first/dashboard"
               className={css({
                 display: 'block',
                 p: '3',
@@ -62,7 +62,7 @@ export default function Home() {
               대시보드 →
             </Link>
             <Link
-              href="/new/signup"
+              href="/property-first/signup"
               className={css({
                 display: 'block',
                 p: '3',

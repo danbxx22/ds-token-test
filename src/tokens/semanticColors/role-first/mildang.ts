@@ -1,7 +1,6 @@
 import type { SemanticColorToken } from '../type';
 
-/** mildang 테마 구버전 numeric scale (brand 용). 제거 예정. */
-export const mildangLegacy: SemanticColorToken = {
+export const mildangRoleFirst: SemanticColorToken = {
   '1': { value: { base: '{colors.green.light.100}', _dark: '{colors.green.dark.100}' } },
   '2': { value: { base: '{colors.green.light.200}', _dark: '{colors.green.dark.400}' } },
   '3': { value: { base: '{colors.green.light.300}', _dark: '{colors.green.dark.300}' } },

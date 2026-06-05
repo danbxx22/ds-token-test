@@ -1,4 +1,4 @@
-export const baseLegacy = {
+export const baseRoleFirst = {
   other: {
     text: {
       inverse: { value: { base: '{colors.gray.light.100}', _dark: '{colors.gray.dark.100}' } },

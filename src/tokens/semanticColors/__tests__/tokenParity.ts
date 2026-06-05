@@ -1,124 +1,124 @@
 /**
- * legacy ↔ new 토큰 동일성 검증
+ * role-first ↔ property-first 토큰 동일성 검증
  * 같은 역할의 두 토큰이 동일한 primitive 색상 참조를 가리키는지 확인한다.
  *
  * 실행: pnpm test:parity
  */
-import { legacySemantic as mildang } from '../legacy/semantic';
-import { mildang as mildangNew } from '../new/mildang';
+import { roleFirstSemantic as rf } from '../role-first/semantic';
+import { mildang as pf } from '../property-first/mildang';
 
 type TokenValue = { value: { base: string; _dark: string } };
 
 interface PairEntry {
-  legacyPath: string;
-  newPath: string;
-  legacy: TokenValue;
-  new: TokenValue;
+  rfPath: string;
+  pfPath: string;
+  rf: TokenValue;
+  pf: TokenValue;
 }
 
 const pairs: PairEntry[] = [
   // primary → neutral : bg
-  { legacyPath: 'primary.bg.low',         newPath: 'bg.neutral.subtle',      legacy: mildang.primary.bg.low,         new: mildangNew.bg.neutral.subtle },
-  { legacyPath: 'primary.bg.base',        newPath: 'bg.neutral.muted',       legacy: mildang.primary.bg.base,        new: mildangNew.bg.neutral.muted },
-  { legacyPath: 'primary.bg.high',        newPath: 'bg.neutral.emphasized',  legacy: mildang.primary.bg.high,        new: mildangNew.bg.neutral.emphasized },
-  { legacyPath: 'primary.bg.highest',     newPath: 'bg.neutral.solid',       legacy: mildang.primary.bg.highest,     new: mildangNew.bg.neutral.solid },
+  { rfPath: 'primary.bg.low',         pfPath: 'bg.neutral.subtle',      rf: rf.primary.bg.low,         pf: pf.bg.neutral.subtle },
+  { rfPath: 'primary.bg.base',        pfPath: 'bg.neutral.muted',       rf: rf.primary.bg.base,        pf: pf.bg.neutral.muted },
+  { rfPath: 'primary.bg.high',        pfPath: 'bg.neutral.emphasized',  rf: rf.primary.bg.high,        pf: pf.bg.neutral.emphasized },
+  { rfPath: 'primary.bg.highest',     pfPath: 'bg.neutral.solid',       rf: rf.primary.bg.highest,     pf: pf.bg.neutral.solid },
   // primary → neutral : ghostBg
-  { legacyPath: 'primary.ghostBg.base',    newPath: 'bg.neutral.ghost',       legacy: mildang.primary.ghostBg.base,   new: mildangNew.bg.neutral.ghost.DEFAULT },
-  { legacyPath: 'primary.ghostBg.high',    newPath: 'bg.neutral.ghost.hover', legacy: mildang.primary.ghostBg.high,   new: mildangNew.bg.neutral.ghost.hover },
-  { legacyPath: 'primary.ghostBg.highest', newPath: 'bg.neutral.ghost.pressed', legacy: mildang.primary.ghostBg.highest, new: mildangNew.bg.neutral.ghost.pressed },
+  { rfPath: 'primary.ghostBg.base',    pfPath: 'bg.neutral.ghost',         rf: rf.primary.ghostBg.base,    pf: pf.bg.neutral.ghost.DEFAULT },
+  { rfPath: 'primary.ghostBg.high',    pfPath: 'bg.neutral.ghost.hover',   rf: rf.primary.ghostBg.high,    pf: pf.bg.neutral.ghost.hover },
+  { rfPath: 'primary.ghostBg.highest', pfPath: 'bg.neutral.ghost.pressed', rf: rf.primary.ghostBg.highest, pf: pf.bg.neutral.ghost.pressed },
   // primary → neutral : border
-  { legacyPath: 'primary.border.low',     newPath: 'border.neutral.subtle',    legacy: mildang.primary.border.low,     new: mildangNew.border.neutral.subtle },
-  { legacyPath: 'primary.border.base',    newPath: 'border.neutral.default',   legacy: mildang.primary.border.base,    new: mildangNew.border.neutral.default },
-  { legacyPath: 'primary.border.high',    newPath: 'border.neutral.emphasized',legacy: mildang.primary.border.high,    new: mildangNew.border.neutral.emphasized },
-  { legacyPath: 'primary.border.highest', newPath: 'border.neutral.strong',    legacy: mildang.primary.border.highest, new: mildangNew.border.neutral.strong },
+  { rfPath: 'primary.border.low',     pfPath: 'border.neutral.subtle',     rf: rf.primary.border.low,     pf: pf.border.neutral.subtle },
+  { rfPath: 'primary.border.base',    pfPath: 'border.neutral.default',    rf: rf.primary.border.base,    pf: pf.border.neutral.default },
+  { rfPath: 'primary.border.high',    pfPath: 'border.neutral.emphasized', rf: rf.primary.border.high,    pf: pf.border.neutral.emphasized },
+  { rfPath: 'primary.border.highest', pfPath: 'border.neutral.strong',     rf: rf.primary.border.highest, pf: pf.border.neutral.strong },
   // primary → neutral : fg → icon
-  { legacyPath: 'primary.fg.lowest', newPath: 'icon.neutral.subtle',  legacy: mildang.primary.fg.lowest, new: mildangNew.icon.neutral.subtle },
-  { legacyPath: 'primary.fg.low',    newPath: 'icon.neutral.default', legacy: mildang.primary.fg.low,    new: mildangNew.icon.neutral.default },
-  { legacyPath: 'primary.fg.base',   newPath: 'icon.neutral.strong',  legacy: mildang.primary.fg.base,   new: mildangNew.icon.neutral.strong },
+  { rfPath: 'primary.fg.lowest', pfPath: 'icon.neutral.subtle',  rf: rf.primary.fg.lowest, pf: pf.icon.neutral.subtle },
+  { rfPath: 'primary.fg.low',    pfPath: 'icon.neutral.default', rf: rf.primary.fg.low,    pf: pf.icon.neutral.default },
+  { rfPath: 'primary.fg.base',   pfPath: 'icon.neutral.strong',  rf: rf.primary.fg.base,   pf: pf.icon.neutral.strong },
   // primary → neutral : text
-  { legacyPath: 'primary.text.lowest', newPath: 'text.neutral.subtle',  legacy: mildang.primary.text.lowest, new: mildangNew.text.neutral.subtle },
-  { legacyPath: 'primary.text.low',    newPath: 'text.neutral.default', legacy: mildang.primary.text.low,    new: mildangNew.text.neutral.default },
-  { legacyPath: 'primary.text.base',   newPath: 'text.neutral.strong',  legacy: mildang.primary.text.base,   new: mildangNew.text.neutral.strong },
+  { rfPath: 'primary.text.lowest', pfPath: 'text.neutral.subtle',  rf: rf.primary.text.lowest, pf: pf.text.neutral.subtle },
+  { rfPath: 'primary.text.low',    pfPath: 'text.neutral.default', rf: rf.primary.text.low,    pf: pf.text.neutral.default },
+  { rfPath: 'primary.text.base',   pfPath: 'text.neutral.strong',  rf: rf.primary.text.base,   pf: pf.text.neutral.strong },
 
   // error → critical : bg
-  { legacyPath: 'error.bg.low',     newPath: 'bg.critical.subtle',     legacy: mildang.error.bg.low,     new: mildangNew.bg.critical.subtle },
-  { legacyPath: 'error.bg.base',    newPath: 'bg.critical.muted',      legacy: mildang.error.bg.base,    new: mildangNew.bg.critical.muted },
-  { legacyPath: 'error.bg.high',    newPath: 'bg.critical.emphasized', legacy: mildang.error.bg.high,    new: mildangNew.bg.critical.emphasized },
-  { legacyPath: 'error.bg.highest', newPath: 'bg.critical.solid',      legacy: mildang.error.bg.highest, new: mildangNew.bg.critical.solid },
-  { legacyPath: 'error.ghostBg.base',    newPath: 'bg.critical.ghost',         legacy: mildang.error.ghostBg.base,    new: mildangNew.bg.critical.ghost.DEFAULT },
-  { legacyPath: 'error.ghostBg.high',    newPath: 'bg.critical.ghost.hover',   legacy: mildang.error.ghostBg.high,    new: mildangNew.bg.critical.ghost.hover },
-  { legacyPath: 'error.ghostBg.highest', newPath: 'bg.critical.ghost.pressed', legacy: mildang.error.ghostBg.highest, new: mildangNew.bg.critical.ghost.pressed },
-  { legacyPath: 'error.border.low',     newPath: 'border.critical.subtle',     legacy: mildang.error.border.low,     new: mildangNew.border.critical.subtle },
-  { legacyPath: 'error.border.base',    newPath: 'border.critical.default',    legacy: mildang.error.border.base,    new: mildangNew.border.critical.default },
-  { legacyPath: 'error.border.high',    newPath: 'border.critical.emphasized', legacy: mildang.error.border.high,    new: mildangNew.border.critical.emphasized },
-  { legacyPath: 'error.border.highest', newPath: 'border.critical.strong',     legacy: mildang.error.border.highest, new: mildangNew.border.critical.strong },
-  { legacyPath: 'error.fg.low',  newPath: 'icon.critical.subtle',  legacy: mildang.error.fg.low,  new: mildangNew.icon.critical.subtle },
-  { legacyPath: 'error.fg.base', newPath: 'icon.critical.default', legacy: mildang.error.fg.base, new: mildangNew.icon.critical.default },
-  { legacyPath: 'error.text.base', newPath: 'text.critical.default', legacy: mildang.error.text.base, new: mildangNew.text.critical.default },
+  { rfPath: 'error.bg.low',     pfPath: 'bg.critical.subtle',     rf: rf.error.bg.low,     pf: pf.bg.critical.subtle },
+  { rfPath: 'error.bg.base',    pfPath: 'bg.critical.muted',      rf: rf.error.bg.base,    pf: pf.bg.critical.muted },
+  { rfPath: 'error.bg.high',    pfPath: 'bg.critical.emphasized', rf: rf.error.bg.high,    pf: pf.bg.critical.emphasized },
+  { rfPath: 'error.bg.highest', pfPath: 'bg.critical.solid',      rf: rf.error.bg.highest, pf: pf.bg.critical.solid },
+  { rfPath: 'error.ghostBg.base',    pfPath: 'bg.critical.ghost',         rf: rf.error.ghostBg.base,    pf: pf.bg.critical.ghost.DEFAULT },
+  { rfPath: 'error.ghostBg.high',    pfPath: 'bg.critical.ghost.hover',   rf: rf.error.ghostBg.high,    pf: pf.bg.critical.ghost.hover },
+  { rfPath: 'error.ghostBg.highest', pfPath: 'bg.critical.ghost.pressed', rf: rf.error.ghostBg.highest, pf: pf.bg.critical.ghost.pressed },
+  { rfPath: 'error.border.low',     pfPath: 'border.critical.subtle',     rf: rf.error.border.low,     pf: pf.border.critical.subtle },
+  { rfPath: 'error.border.base',    pfPath: 'border.critical.default',    rf: rf.error.border.base,    pf: pf.border.critical.default },
+  { rfPath: 'error.border.high',    pfPath: 'border.critical.emphasized', rf: rf.error.border.high,    pf: pf.border.critical.emphasized },
+  { rfPath: 'error.border.highest', pfPath: 'border.critical.strong',     rf: rf.error.border.highest, pf: pf.border.critical.strong },
+  { rfPath: 'error.fg.low',  pfPath: 'icon.critical.subtle',  rf: rf.error.fg.low,  pf: pf.icon.critical.subtle },
+  { rfPath: 'error.fg.base', pfPath: 'icon.critical.default', rf: rf.error.fg.base, pf: pf.icon.critical.default },
+  { rfPath: 'error.text.base', pfPath: 'text.critical.default', rf: rf.error.text.base, pf: pf.text.critical.default },
 
   // success → positive : bg
-  { legacyPath: 'success.bg.low',     newPath: 'bg.positive.subtle',     legacy: mildang.success.bg.low,     new: mildangNew.bg.positive.subtle },
-  { legacyPath: 'success.bg.base',    newPath: 'bg.positive.muted',      legacy: mildang.success.bg.base,    new: mildangNew.bg.positive.muted },
-  { legacyPath: 'success.bg.high',    newPath: 'bg.positive.emphasized', legacy: mildang.success.bg.high,    new: mildangNew.bg.positive.emphasized },
-  { legacyPath: 'success.bg.highest', newPath: 'bg.positive.solid',      legacy: mildang.success.bg.highest, new: mildangNew.bg.positive.solid },
-  { legacyPath: 'success.ghostBg.base',    newPath: 'bg.positive.ghost',         legacy: mildang.success.ghostBg.base,    new: mildangNew.bg.positive.ghost.DEFAULT },
-  { legacyPath: 'success.ghostBg.high',    newPath: 'bg.positive.ghost.hover',   legacy: mildang.success.ghostBg.high,    new: mildangNew.bg.positive.ghost.hover },
-  { legacyPath: 'success.ghostBg.highest', newPath: 'bg.positive.ghost.pressed', legacy: mildang.success.ghostBg.highest, new: mildangNew.bg.positive.ghost.pressed },
-  { legacyPath: 'success.border.low',     newPath: 'border.positive.subtle',     legacy: mildang.success.border.low,     new: mildangNew.border.positive.subtle },
-  { legacyPath: 'success.border.base',    newPath: 'border.positive.default',    legacy: mildang.success.border.base,    new: mildangNew.border.positive.default },
-  { legacyPath: 'success.border.high',    newPath: 'border.positive.emphasized', legacy: mildang.success.border.high,    new: mildangNew.border.positive.emphasized },
-  { legacyPath: 'success.border.highest', newPath: 'border.positive.strong',     legacy: mildang.success.border.highest, new: mildangNew.border.positive.strong },
-  { legacyPath: 'success.fg.low',  newPath: 'icon.positive.subtle',  legacy: mildang.success.fg.low,  new: mildangNew.icon.positive.subtle },
-  { legacyPath: 'success.fg.base', newPath: 'icon.positive.default', legacy: mildang.success.fg.base, new: mildangNew.icon.positive.default },
-  { legacyPath: 'success.text.base', newPath: 'text.positive.default', legacy: mildang.success.text.base, new: mildangNew.text.positive.default },
+  { rfPath: 'success.bg.low',     pfPath: 'bg.positive.subtle',     rf: rf.success.bg.low,     pf: pf.bg.positive.subtle },
+  { rfPath: 'success.bg.base',    pfPath: 'bg.positive.muted',      rf: rf.success.bg.base,    pf: pf.bg.positive.muted },
+  { rfPath: 'success.bg.high',    pfPath: 'bg.positive.emphasized', rf: rf.success.bg.high,    pf: pf.bg.positive.emphasized },
+  { rfPath: 'success.bg.highest', pfPath: 'bg.positive.solid',      rf: rf.success.bg.highest, pf: pf.bg.positive.solid },
+  { rfPath: 'success.ghostBg.base',    pfPath: 'bg.positive.ghost',         rf: rf.success.ghostBg.base,    pf: pf.bg.positive.ghost.DEFAULT },
+  { rfPath: 'success.ghostBg.high',    pfPath: 'bg.positive.ghost.hover',   rf: rf.success.ghostBg.high,    pf: pf.bg.positive.ghost.hover },
+  { rfPath: 'success.ghostBg.highest', pfPath: 'bg.positive.ghost.pressed', rf: rf.success.ghostBg.highest, pf: pf.bg.positive.ghost.pressed },
+  { rfPath: 'success.border.low',     pfPath: 'border.positive.subtle',     rf: rf.success.border.low,     pf: pf.border.positive.subtle },
+  { rfPath: 'success.border.base',    pfPath: 'border.positive.default',    rf: rf.success.border.base,    pf: pf.border.positive.default },
+  { rfPath: 'success.border.high',    pfPath: 'border.positive.emphasized', rf: rf.success.border.high,    pf: pf.border.positive.emphasized },
+  { rfPath: 'success.border.highest', pfPath: 'border.positive.strong',     rf: rf.success.border.highest, pf: pf.border.positive.strong },
+  { rfPath: 'success.fg.low',  pfPath: 'icon.positive.subtle',  rf: rf.success.fg.low,  pf: pf.icon.positive.subtle },
+  { rfPath: 'success.fg.base', pfPath: 'icon.positive.default', rf: rf.success.fg.base, pf: pf.icon.positive.default },
+  { rfPath: 'success.text.base', pfPath: 'text.positive.default', rf: rf.success.text.base, pf: pf.text.positive.default },
 
   // warning → caution : bg
-  { legacyPath: 'warning.bg.low',     newPath: 'bg.caution.subtle',     legacy: mildang.warning.bg.low,     new: mildangNew.bg.caution.subtle },
-  { legacyPath: 'warning.bg.base',    newPath: 'bg.caution.muted',      legacy: mildang.warning.bg.base,    new: mildangNew.bg.caution.muted },
-  { legacyPath: 'warning.bg.high',    newPath: 'bg.caution.emphasized', legacy: mildang.warning.bg.high,    new: mildangNew.bg.caution.emphasized },
-  { legacyPath: 'warning.bg.highest', newPath: 'bg.caution.solid',      legacy: mildang.warning.bg.highest, new: mildangNew.bg.caution.solid },
-  { legacyPath: 'warning.ghostBg.base',    newPath: 'bg.caution.ghost',         legacy: mildang.warning.ghostBg.base,    new: mildangNew.bg.caution.ghost.DEFAULT },
-  { legacyPath: 'warning.ghostBg.high',    newPath: 'bg.caution.ghost.hover',   legacy: mildang.warning.ghostBg.high,    new: mildangNew.bg.caution.ghost.hover },
-  { legacyPath: 'warning.ghostBg.highest', newPath: 'bg.caution.ghost.pressed', legacy: mildang.warning.ghostBg.highest, new: mildangNew.bg.caution.ghost.pressed },
-  { legacyPath: 'warning.border.low',     newPath: 'border.caution.subtle',     legacy: mildang.warning.border.low,     new: mildangNew.border.caution.subtle },
-  { legacyPath: 'warning.border.base',    newPath: 'border.caution.default',    legacy: mildang.warning.border.base,    new: mildangNew.border.caution.default },
-  { legacyPath: 'warning.border.high',    newPath: 'border.caution.emphasized', legacy: mildang.warning.border.high,    new: mildangNew.border.caution.emphasized },
-  { legacyPath: 'warning.border.highest', newPath: 'border.caution.strong',     legacy: mildang.warning.border.highest, new: mildangNew.border.caution.strong },
-  { legacyPath: 'warning.fg.lowest', newPath: 'icon.caution.subtle',  legacy: mildang.warning.fg.lowest, new: mildangNew.icon.caution.subtle },
-  { legacyPath: 'warning.fg.base',   newPath: 'icon.caution.default', legacy: mildang.warning.fg.base,   new: mildangNew.icon.caution.default },
-  { legacyPath: 'warning.text.base', newPath: 'text.caution.default', legacy: mildang.warning.text.base, new: mildangNew.text.caution.default },
+  { rfPath: 'warning.bg.low',     pfPath: 'bg.caution.subtle',     rf: rf.warning.bg.low,     pf: pf.bg.caution.subtle },
+  { rfPath: 'warning.bg.base',    pfPath: 'bg.caution.muted',      rf: rf.warning.bg.base,    pf: pf.bg.caution.muted },
+  { rfPath: 'warning.bg.high',    pfPath: 'bg.caution.emphasized', rf: rf.warning.bg.high,    pf: pf.bg.caution.emphasized },
+  { rfPath: 'warning.bg.highest', pfPath: 'bg.caution.solid',      rf: rf.warning.bg.highest, pf: pf.bg.caution.solid },
+  { rfPath: 'warning.ghostBg.base',    pfPath: 'bg.caution.ghost',         rf: rf.warning.ghostBg.base,    pf: pf.bg.caution.ghost.DEFAULT },
+  { rfPath: 'warning.ghostBg.high',    pfPath: 'bg.caution.ghost.hover',   rf: rf.warning.ghostBg.high,    pf: pf.bg.caution.ghost.hover },
+  { rfPath: 'warning.ghostBg.highest', pfPath: 'bg.caution.ghost.pressed', rf: rf.warning.ghostBg.highest, pf: pf.bg.caution.ghost.pressed },
+  { rfPath: 'warning.border.low',     pfPath: 'border.caution.subtle',     rf: rf.warning.border.low,     pf: pf.border.caution.subtle },
+  { rfPath: 'warning.border.base',    pfPath: 'border.caution.default',    rf: rf.warning.border.base,    pf: pf.border.caution.default },
+  { rfPath: 'warning.border.high',    pfPath: 'border.caution.emphasized', rf: rf.warning.border.high,    pf: pf.border.caution.emphasized },
+  { rfPath: 'warning.border.highest', pfPath: 'border.caution.strong',     rf: rf.warning.border.highest, pf: pf.border.caution.strong },
+  { rfPath: 'warning.fg.lowest', pfPath: 'icon.caution.subtle',  rf: rf.warning.fg.lowest, pf: pf.icon.caution.subtle },
+  { rfPath: 'warning.fg.base',   pfPath: 'icon.caution.default', rf: rf.warning.fg.base,   pf: pf.icon.caution.default },
+  { rfPath: 'warning.text.base', pfPath: 'text.caution.default', rf: rf.warning.text.base, pf: pf.text.caution.default },
 
   // info → informative : bg
-  { legacyPath: 'info.bg.low',     newPath: 'bg.informative.subtle',     legacy: mildang.info.bg.low,     new: mildangNew.bg.informative.subtle },
-  { legacyPath: 'info.bg.base',    newPath: 'bg.informative.muted',      legacy: mildang.info.bg.base,    new: mildangNew.bg.informative.muted },
-  { legacyPath: 'info.bg.high',    newPath: 'bg.informative.emphasized', legacy: mildang.info.bg.high,    new: mildangNew.bg.informative.emphasized },
-  { legacyPath: 'info.bg.highest', newPath: 'bg.informative.solid',      legacy: mildang.info.bg.highest, new: mildangNew.bg.informative.solid },
-  { legacyPath: 'info.ghostBg.base',    newPath: 'bg.informative.ghost',         legacy: mildang.info.ghostBg.base,    new: mildangNew.bg.informative.ghost.DEFAULT },
-  { legacyPath: 'info.ghostBg.high',    newPath: 'bg.informative.ghost.hover',   legacy: mildang.info.ghostBg.high,    new: mildangNew.bg.informative.ghost.hover },
-  { legacyPath: 'info.ghostBg.highest', newPath: 'bg.informative.ghost.pressed', legacy: mildang.info.ghostBg.highest, new: mildangNew.bg.informative.ghost.pressed },
-  { legacyPath: 'info.border.low',     newPath: 'border.informative.subtle',     legacy: mildang.info.border.low,     new: mildangNew.border.informative.subtle },
-  { legacyPath: 'info.border.base',    newPath: 'border.informative.default',    legacy: mildang.info.border.base,    new: mildangNew.border.informative.default },
-  { legacyPath: 'info.border.high',    newPath: 'border.informative.emphasized', legacy: mildang.info.border.high,    new: mildangNew.border.informative.emphasized },
-  { legacyPath: 'info.border.highest', newPath: 'border.informative.strong',     legacy: mildang.info.border.highest, new: mildangNew.border.informative.strong },
-  { legacyPath: 'info.fg.low',  newPath: 'icon.informative.subtle',  legacy: mildang.info.fg.low,  new: mildangNew.icon.informative.subtle },
-  { legacyPath: 'info.fg.base', newPath: 'icon.informative.default', legacy: mildang.info.fg.base, new: mildangNew.icon.informative.default },
-  { legacyPath: 'info.text.base', newPath: 'text.informative.default', legacy: mildang.info.text.base, new: mildangNew.text.informative.default },
+  { rfPath: 'info.bg.low',     pfPath: 'bg.informative.subtle',     rf: rf.info.bg.low,     pf: pf.bg.informative.subtle },
+  { rfPath: 'info.bg.base',    pfPath: 'bg.informative.muted',      rf: rf.info.bg.base,    pf: pf.bg.informative.muted },
+  { rfPath: 'info.bg.high',    pfPath: 'bg.informative.emphasized', rf: rf.info.bg.high,    pf: pf.bg.informative.emphasized },
+  { rfPath: 'info.bg.highest', pfPath: 'bg.informative.solid',      rf: rf.info.bg.highest, pf: pf.bg.informative.solid },
+  { rfPath: 'info.ghostBg.base',    pfPath: 'bg.informative.ghost',         rf: rf.info.ghostBg.base,    pf: pf.bg.informative.ghost.DEFAULT },
+  { rfPath: 'info.ghostBg.high',    pfPath: 'bg.informative.ghost.hover',   rf: rf.info.ghostBg.high,    pf: pf.bg.informative.ghost.hover },
+  { rfPath: 'info.ghostBg.highest', pfPath: 'bg.informative.ghost.pressed', rf: rf.info.ghostBg.highest, pf: pf.bg.informative.ghost.pressed },
+  { rfPath: 'info.border.low',     pfPath: 'border.informative.subtle',     rf: rf.info.border.low,     pf: pf.border.informative.subtle },
+  { rfPath: 'info.border.base',    pfPath: 'border.informative.default',    rf: rf.info.border.base,    pf: pf.border.informative.default },
+  { rfPath: 'info.border.high',    pfPath: 'border.informative.emphasized', rf: rf.info.border.high,    pf: pf.border.informative.emphasized },
+  { rfPath: 'info.border.highest', pfPath: 'border.informative.strong',     rf: rf.info.border.highest, pf: pf.border.informative.strong },
+  { rfPath: 'info.fg.low',  pfPath: 'icon.informative.subtle',  rf: rf.info.fg.low,  pf: pf.icon.informative.subtle },
+  { rfPath: 'info.fg.base', pfPath: 'icon.informative.default', rf: rf.info.fg.base, pf: pf.icon.informative.default },
+  { rfPath: 'info.text.base', pfPath: 'text.informative.default', rf: rf.info.text.base, pf: pf.text.informative.default },
 
   // brand → brand : bg
-  { legacyPath: 'brand.bg.low',     newPath: 'bg.brand.subtle',     legacy: mildang.brand.bg.low,     new: mildangNew.bg.brand.subtle },
-  { legacyPath: 'brand.bg.base',    newPath: 'bg.brand.muted',      legacy: mildang.brand.bg.base,    new: mildangNew.bg.brand.muted },
-  { legacyPath: 'brand.bg.high',    newPath: 'bg.brand.emphasized', legacy: mildang.brand.bg.high,    new: mildangNew.bg.brand.emphasized },
-  { legacyPath: 'brand.bg.highest', newPath: 'bg.brand.solid',      legacy: mildang.brand.bg.highest, new: mildangNew.bg.brand.solid },
-  { legacyPath: 'brand.ghostBg.base',    newPath: 'bg.brand.ghost',         legacy: mildang.brand.ghostBg.base,    new: mildangNew.bg.brand.ghost.DEFAULT },
-  { legacyPath: 'brand.ghostBg.high',    newPath: 'bg.brand.ghost.hover',   legacy: mildang.brand.ghostBg.high,    new: mildangNew.bg.brand.ghost.hover },
-  { legacyPath: 'brand.ghostBg.highest', newPath: 'bg.brand.ghost.pressed', legacy: mildang.brand.ghostBg.highest, new: mildangNew.bg.brand.ghost.pressed },
-  { legacyPath: 'brand.border.low',     newPath: 'border.brand.subtle',     legacy: mildang.brand.border.low,     new: mildangNew.border.brand.subtle },
-  { legacyPath: 'brand.border.base',    newPath: 'border.brand.default',    legacy: mildang.brand.border.base,    new: mildangNew.border.brand.default },
-  { legacyPath: 'brand.border.high',    newPath: 'border.brand.emphasized', legacy: mildang.brand.border.high,    new: mildangNew.border.brand.emphasized },
-  { legacyPath: 'brand.border.highest', newPath: 'border.brand.strong',     legacy: mildang.brand.border.highest, new: mildangNew.border.brand.strong },
-  { legacyPath: 'brand.fg.low',  newPath: 'icon.brand.subtle',  legacy: mildang.brand.fg.low,  new: mildangNew.icon.brand.subtle },
-  { legacyPath: 'brand.fg.base', newPath: 'icon.brand.default', legacy: mildang.brand.fg.base, new: mildangNew.icon.brand.default },
-  { legacyPath: 'brand.text.base', newPath: 'text.brand.default', legacy: mildang.brand.text.base, new: mildangNew.text.brand.default },
+  { rfPath: 'brand.bg.low',     pfPath: 'bg.brand.subtle',     rf: rf.brand.bg.low,     pf: pf.bg.brand.subtle },
+  { rfPath: 'brand.bg.base',    pfPath: 'bg.brand.muted',      rf: rf.brand.bg.base,    pf: pf.bg.brand.muted },
+  { rfPath: 'brand.bg.high',    pfPath: 'bg.brand.emphasized', rf: rf.brand.bg.high,    pf: pf.bg.brand.emphasized },
+  { rfPath: 'brand.bg.highest', pfPath: 'bg.brand.solid',      rf: rf.brand.bg.highest, pf: pf.bg.brand.solid },
+  { rfPath: 'brand.ghostBg.base',    pfPath: 'bg.brand.ghost',         rf: rf.brand.ghostBg.base,    pf: pf.bg.brand.ghost.DEFAULT },
+  { rfPath: 'brand.ghostBg.high',    pfPath: 'bg.brand.ghost.hover',   rf: rf.brand.ghostBg.high,    pf: pf.bg.brand.ghost.hover },
+  { rfPath: 'brand.ghostBg.highest', pfPath: 'bg.brand.ghost.pressed', rf: rf.brand.ghostBg.highest, pf: pf.bg.brand.ghost.pressed },
+  { rfPath: 'brand.border.low',     pfPath: 'border.brand.subtle',     rf: rf.brand.border.low,     pf: pf.border.brand.subtle },
+  { rfPath: 'brand.border.base',    pfPath: 'border.brand.default',    rf: rf.brand.border.base,    pf: pf.border.brand.default },
+  { rfPath: 'brand.border.high',    pfPath: 'border.brand.emphasized', rf: rf.brand.border.high,    pf: pf.border.brand.emphasized },
+  { rfPath: 'brand.border.highest', pfPath: 'border.brand.strong',     rf: rf.brand.border.highest, pf: pf.border.brand.strong },
+  { rfPath: 'brand.fg.low',  pfPath: 'icon.brand.subtle',  rf: rf.brand.fg.low,  pf: pf.icon.brand.subtle },
+  { rfPath: 'brand.fg.base', pfPath: 'icon.brand.default', rf: rf.brand.fg.base, pf: pf.icon.brand.default },
+  { rfPath: 'brand.text.base', pfPath: 'text.brand.default', rf: rf.brand.text.base, pf: pf.text.brand.default },
 ];
 
 let passed = 0;
@@ -126,20 +126,20 @@ let failed = 0;
 const failures: string[] = [];
 
 for (const pair of pairs) {
-  const legacyBase = pair.legacy.value.base;
-  const newBase = pair.new.value.base;
-  const legacyDark = pair.legacy.value._dark;
-  const newDark = pair.new.value._dark;
+  const rfBase = pair.rf.value.base;
+  const pfBase = pair.pf.value.base;
+  const rfDark = pair.rf.value._dark;
+  const pfDark = pair.pf.value._dark;
 
-  if (legacyBase === newBase && legacyDark === newDark) {
+  if (rfBase === pfBase && rfDark === pfDark) {
     passed++;
   } else {
     failed++;
-    if (legacyBase !== newBase) {
-      failures.push(`  LIGHT  ${pair.legacyPath} → ${pair.newPath}\n         legacy: ${legacyBase}\n            new: ${newBase}`);
+    if (rfBase !== pfBase) {
+      failures.push(`  LIGHT  ${pair.rfPath} → ${pair.pfPath}\n         rf: ${rfBase}\n         pf: ${pfBase}`);
     }
-    if (legacyDark !== newDark) {
-      failures.push(`  DARK   ${pair.legacyPath} → ${pair.newPath}\n         legacy: ${legacyDark}\n            new: ${newDark}`);
+    if (rfDark !== pfDark) {
+      failures.push(`  DARK   ${pair.rfPath} → ${pair.pfPath}\n         rf: ${rfDark}\n         pf: ${pfDark}`);
     }
   }
 }

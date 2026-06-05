@@ -1,4 +1,4 @@
-export const legacySemantic = {
+export const roleFirstSemantic = {
   primary: {
     bg: {
       low: { value: { base: '{colors.gray.light.100}', _dark: '{colors.gray.dark.100}' } },
