@@ -26,7 +26,9 @@
 | [2026-06-05_role-first_dashboard](./2026-06-05_role-first_dashboard.md)         | 2026-06-05 | Claude Sonnet 4.6 | role-first     | dashboard |
 | [2026-06-05_property-first_dashboard](./2026-06-05_property-first_dashboard.md) | 2026-06-05 | Claude Sonnet 4.6 | property-first | dashboard |
 | [2026-06-05_role-first_billing](./2026-06-05_role-first_billing.md)             | 2026-06-05 | Claude Sonnet 4.6 | role-first     | billing   |
-| [2026-06-05-property-first-billing](./2026-06-05-property-first-billing.md)     | 2026-06-05 | Claude Sonnet 4.6 | property-first | billing   |
+| [2026-06-05-property-first-billing](./2026-06-05-property-first-billing.md)     | 2026-06-05 | Claude Sonnet 4.6 | property-first | billing        |
+| [2026-06-05-property-first-notifications](./2026-06-05-property-first-notifications.md) | 2026-06-05 | Claude Sonnet 4.6 | property-first | notifications |
+| [2026-06-05_role-first_notifications](./2026-06-05_role-first_notifications.md) | 2026-06-05 | Claude Sonnet 4.6 | role-first | notifications |
 
 
 ---
@@ -60,4 +62,20 @@
 
 
 > dashboard 대비 role-first의 오류 건수가 절반(18→9건, 16→7건)으로 줄었다. 이는 사이드바 nav 패턴이 동일하게 재사용되면서 동일 오류가 반복된 결과로, 구조적 패턴 오류가 누적된 것. property-first는 billing에서 role mismatch·fg/text mismatch 모두 0건을 기록했다. 슬롯명 강제의 효과가 단순 반복 구현에서도 일관되게 유지됨을 확인.
+
+---
+
+## 비교 요약 — notifications (Claude Sonnet 4.6)
+
+
+| 항목               | role-first                                                  | property-first                                        |
+| ---------------- | ----------------------------------------------------------- | ----------------------------------------------------- |
+| role mismatch    | **10건** (`fill.*` 대응을 `fg.*`로 오인 → `bg`/`borderColor`에 전용) | **5건** (좌측 강조 테두리에 `fill.*`을 `borderColor`로 사용)       |
+| fg/text mismatch | **0건**                                                      | **0건**                                                |
+| 하드코딩             | 0건                                                          | 0건                                                    |
+| 추론 오류            | 없음                                                          | 없음                                                    |
+| 시각적 동일성          | 대체로 일치 (강조선·filled 요소에서 색조 차이 가능성)                         | 비교 대상 없음 (신규 페이지) / 스펙 대비 높은 일치                       |
+
+
+> fg/text mismatch는 양쪽 모두 0건으로 dashboard·billing 대비 개선됐다. role-first의 role mismatch 10건은 단일 패턴의 반복 — property-first의 `fill.*`에 해당하는 role-first 토큰을 `*.fg.base`로 잘못 식별해 `bg` / `borderColor`에 사용. 정석 대응은 `*.bg.highest`(배경) / `*.border.highest`(테두리)이다. property-first의 5건은 좌측 강조 테두리에 `fill.*`을 `borderColor`로 직역한 것으로, `fill.*`과 `border.*.strongest`가 동일 값을 가리키므로 시각 차이는 없고 의미론적 오류만 발생한다. 슬롯명 명시 여부와 무관하게 "강한 채움" 표현을 직역하는 패턴은 양쪽 체계 모두에서 오류를 유발했다.
 
