@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "exactOptionalPropertyTypes": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@ds-token-test/styled-system": [
+        "./styled-system"
+      ],
+      "@ds-token-test/styled-system/*": [
+        "./styled-system/*"
+      ],
+      "@ds-token-test/styled-system-legacy": [
+        "./styled-system-legacy"
+      ],
+      "@ds-token-test/styled-system-legacy/*": [
+        "./styled-system-legacy/*"
+      ],
+      "@ds-token-test/styled-system-new": [
+        "./styled-system-new"
+      ],
+      "@ds-token-test/styled-system-new/*": [
+        "./styled-system-new/*"
+      ]
+    },
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "panda.config.ts",
+    "panda.config.legacy.ts",
+    "panda.config.new.ts",
+    "next.config.mjs",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "styled-system",
+    "styled-system-legacy",
+    "styled-system-new"
+  ]
+}

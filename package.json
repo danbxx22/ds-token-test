@@ -1,0 +1,31 @@
+{
+  "name": "ds-token-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "pnpm codegen",
+    "codegen": "pnpm codegen:legacy && pnpm codegen:new",
+    "codegen:legacy": "panda codegen --config panda.config.legacy.ts",
+    "codegen:new": "panda codegen --config panda.config.new.ts",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ark-ui/react": "^5.37.0",
+    "@park-ui/panda-preset": "^0.43.1",
+    "next": "14.2.5",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "1.8.2",
+    "@pandacss/token-dictionary": "1.8.2",
+    "@pandacss/types": "1.8.2",
+    "@types/node": "^22.14.1",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "typescript": "~5.8.3"
+  }
+}

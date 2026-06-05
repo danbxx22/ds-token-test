@@ -1,0 +1,10 @@
+node_modules
+dist
+styled-system
+styled-system-legacy
+styled-system-new
+.turbo
+*.tsbuildinfo
+
+# 실험 설계 문서 — 실험 참여자에게 노출 금지
+DESIGN.md
