@@ -6,7 +6,7 @@
  * variant 매핑: low→subtle, base→muted/default, high→emphasized, highest→solid/strong
  * state 패턴: ghost.DEFAULT / ghost.hover / ghost.pressed
  */
-export const newMildang = {
+export const mildang = {
   bg: {
     neutral: {
       subtle: { value: { base: '{colors.gray.light.100}', _dark: '{colors.gray.dark.100}' } },

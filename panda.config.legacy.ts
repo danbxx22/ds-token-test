@@ -4,8 +4,6 @@ import neutralColor from '@park-ui/panda-preset/colors/neutral';
 import { createColorTokens } from './src/tokens/colors';
 import { defineColorTokens } from './src/tokens/semanticColors';
 
-const colorSchema = 'mildang';
-
 const parkUiPreset = createPreset({ accentColor: neutralColor, grayColor: neutralColor, radius: 'md' });
 
 export default defineConfig({
@@ -19,10 +17,10 @@ export default defineConfig({
   theme: {
     extend: {
       tokens: {
-        colors: createColorTokens({ colorSchema }),
+        colors: createColorTokens(),
       },
       semanticTokens: {
-        colors: defineColorTokens({ colorSchema }),
+        colors: defineColorTokens(),
       },
     },
   },

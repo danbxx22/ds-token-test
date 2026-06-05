@@ -1,15 +1,5 @@
-/**
- * 구버전(numeric scale / mediumBg / other / accent) 시맨틱 토큰.
- * 신규 role-based 체계로 전환 완료 후 본 파일을 제거하면 구 토큰을 일괄 정리할 수 있다.
- */
 export const baseLegacy = {
   other: {
-    chat: {
-      normal: { value: { base: '{colors.lime.light.400}', _dark: '{colors.lime.light.300}' } },
-    },
-    rating: {
-      normal: { value: { base: '{colors.yellow.light.600}', _dark: '{colors.yellow.light.500}' } },
-    },
     text: {
       inverse: { value: { base: '{colors.gray.light.100}', _dark: '{colors.gray.dark.100}' } },
     },
@@ -34,9 +24,6 @@ export const baseLegacy = {
       normal: {
         value: { base: '{colors.gray.light.900}', _dark: '{colors.gray.dark.900}' },
       },
-    },
-    gradient: {
-      purpleBlue: { value: { base: '{colors.gradient.purpleBlue}', _dark: '{colors.gradient.purpleBlue}' } },
     },
   },
   warning: {
@@ -111,41 +98,5 @@ export const baseLegacy = {
     a1: { value: { base: '{colors.red.light.a100}', _dark: '{colors.red.dark.a100}' } },
     a2: { value: { base: '{colors.red.light.a200}', _dark: '{colors.red.dark.a200}' } },
     a3: { value: { base: '{colors.red.light.a300}', _dark: '{colors.red.dark.a300}' } },
-  },
-  accent: {
-    pink: {
-      '1': { value: { base: '{colors.pink.light.100}', _dark: '{colors.pink.dark.100}' } },
-      '2': { value: { base: '{colors.pink.light.200}', _dark: '{colors.pink.dark.400}' } },
-      '3': { value: { base: '{colors.pink.light.300}', _dark: '{colors.pink.dark.300}' } },
-      '4': { value: { base: '{colors.pink.light.400}', _dark: '{colors.pink.dark.200}' } },
-      '5': { value: { base: '{colors.pink.light.500}', _dark: '{colors.pink.dark.500}' } },
-      '6': { value: { base: '{colors.pink.light.600}', _dark: '{colors.pink.dark.600}' } },
-      '7': { value: { base: '{colors.pink.light.700}', _dark: '{colors.pink.dark.900}' } },
-      '8': { value: { base: '{colors.pink.light.800}', _dark: '{colors.pink.dark.800}' } },
-      '9': { value: { base: '{colors.pink.light.900}', _dark: '{colors.pink.dark.700}' } },
-      '10': { value: { base: '{colors.pink.light.1000}', _dark: '{colors.pink.dark.1000}' } },
-      '11': { value: { base: '{colors.pink.light.1100}', _dark: '{colors.pink.dark.1100}' } },
-      '12': { value: { base: '{colors.pink.light.1200}', _dark: '{colors.pink.dark.1200}' } },
-      a1: { value: { base: '{colors.pink.light.a100}', _dark: '{colors.pink.dark.a100}' } },
-      a2: { value: { base: '{colors.pink.light.a200}', _dark: '{colors.pink.dark.a200}' } },
-      a3: { value: { base: '{colors.pink.light.a300}', _dark: '{colors.pink.dark.a300}' } },
-    },
-    purple: {
-      '1': { value: { base: '{colors.purple.light.100}', _dark: '{colors.purple.dark.100}' } },
-      '2': { value: { base: '{colors.purple.light.200}', _dark: '{colors.purple.dark.400}' } },
-      '3': { value: { base: '{colors.purple.light.300}', _dark: '{colors.purple.dark.300}' } },
-      '4': { value: { base: '{colors.purple.light.400}', _dark: '{colors.purple.dark.200}' } },
-      '5': { value: { base: '{colors.purple.light.500}', _dark: '{colors.purple.dark.500}' } },
-      '6': { value: { base: '{colors.purple.light.600}', _dark: '{colors.purple.dark.600}' } },
-      '7': { value: { base: '{colors.purple.light.700}', _dark: '{colors.purple.dark.900}' } },
-      '8': { value: { base: '{colors.purple.light.800}', _dark: '{colors.purple.dark.800}' } },
-      '9': { value: { base: '{colors.purple.light.900}', _dark: '{colors.purple.dark.700}' } },
-      '10': { value: { base: '{colors.purple.light.1000}', _dark: '{colors.purple.dark.1000}' } },
-      '11': { value: { base: '{colors.purple.light.1100}', _dark: '{colors.purple.dark.1100}' } },
-      '12': { value: { base: '{colors.purple.light.1200}', _dark: '{colors.purple.dark.1200}' } },
-      a1: { value: { base: '{colors.purple.light.a100}', _dark: '{colors.purple.dark.a100}' } },
-      a2: { value: { base: '{colors.purple.light.a200}', _dark: '{colors.purple.dark.a200}' } },
-      a3: { value: { base: '{colors.purple.light.a300}', _dark: '{colors.purple.dark.a300}' } },
-    },
   },
 };

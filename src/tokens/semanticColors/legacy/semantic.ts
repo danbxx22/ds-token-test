@@ -1,11 +1,4 @@
-import { buildGradient } from './gradient';
-
-/**
- * mildang 테마 시맨틱 컬러(primary + inverse + brand + status + gradient role).
- * 구버전 numeric scale은 `./legacy/mildang.ts`에 있으며 index.ts에서 병합된다.
- */
-export const mildang = {
-  gradient: buildGradient('darkable'),
+export const legacySemantic = {
   primary: {
     bg: {
       low: { value: { base: '{colors.gray.light.100}', _dark: '{colors.gray.dark.100}' } },
