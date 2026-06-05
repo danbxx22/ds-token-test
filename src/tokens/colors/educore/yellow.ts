@@ -1,0 +1,46 @@
+import type { ColorToken } from '../type';
+
+const color = (value: string) => ({ value });
+
+export const yellow: ColorToken = {
+  light: {
+    '100': color('#fefaef'),
+    '200': color('#fef1d0'),
+    '300': color('#ffe7a4'),
+    '400': color('#ffdb74'),
+    '500': color('#ffd34d'),
+    '600': color('#ffcb2e'),
+    '700': color('#d9a600'),
+    '800': color('#a37900'),
+    '900': color('#6b4d00'),
+    '1000': color('#312100'),
+    '1100': color('#312100'),
+    '1200': color('#312100'),
+    a100: color('rgba(255, 203, 46, 0.06)'),
+    a200: color('rgba(255, 203, 46, 0.09)'),
+    a300: color('rgba(255, 203, 46, 0.12)'),
+    a400: color('rgba(255, 203, 46, 0.16)'),
+    a500: color('rgba(255, 203, 46, 0.2)'),
+    a600: color('rgba(255, 203, 46, 0.24)'),
+  },
+  dark: {
+    '100': color('#fefaef'),
+    '200': color('#fef1d0'),
+    '300': color('#ffe7a4'),
+    '400': color('#ffdb74'),
+    '500': color('#ffd34d'),
+    '600': color('#ffcb2e'),
+    '700': color('#d9a600'),
+    '800': color('#a37900'),
+    '900': color('#6b4d00'),
+    '1000': color('#312100'),
+    '1100': color('#312100'),
+    '1200': color('#312100'),
+    a100: color('rgba(254, 241, 208, 0.06)'),
+    a200: color('rgba(254, 241, 208, 0.09)'),
+    a300: color('rgba(254, 241, 208, 0.12)'),
+    a400: color('rgba(254, 241, 208, 0.16)'),
+    a500: color('rgba(254, 241, 208, 0.2)'),
+    a600: color('rgba(255, 203, 46, 0.24)'),
+  },
+};
