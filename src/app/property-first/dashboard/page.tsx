@@ -1,4 +1,4 @@
-import { css } from '@ds-token-test/styled-system-property-first/css';
+import { css } from '@ds-token-test/styled-system/css';
 import Link from 'next/link';
 import {
   LayoutDashboard,
@@ -421,7 +421,7 @@ export default function DashboardPage() {
             {/* Divider */}
             <div
               className={css({
-                w: 'px',
+                w: '1px',
                 h: '6',
                 bg: 'border.neutral.subtle',
                 mx: '2',
