@@ -13,7 +13,10 @@ importers:
         version: 5.37.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@park-ui/panda-preset':
         specifier: ^0.43.1
-        version: 0.43.1(@internationalized/date@3.5.5)(@pandacss/dev@1.8.2(typescript@5.8.3))
+        version: 0.43.1(@internationalized/date@3.12.0)(@pandacss/dev@1.8.2(typescript@5.8.3))
+      lucide-react:
+        specifier: ^1.17.0
+        version: 1.17.0(react@19.1.1)
       next:
         specifier: 14.2.5
         version: 14.2.5(@babel/core@7.29.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -2588,6 +2591,11 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lucide-react@1.17.0:
+    resolution: {integrity: sha512-9FA9evdox/JQL5PT57fdA1x/yg8T7knJ98+zjTL3UfKza6pflQUUh3XtaQIHKvnsJw1lmsEyHVlt5jchYxOQ5w==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -3446,7 +3454,7 @@ snapshots:
 
   '@adobe/css-tools@4.5.0': {}
 
-  '@ark-ui/anatomy@3.5.0(@internationalized/date@3.5.5)':
+  '@ark-ui/anatomy@3.5.0(@internationalized/date@3.12.0)':
     dependencies:
       '@zag-js/accordion': 0.62.1
       '@zag-js/anatomy': 0.62.1
@@ -3459,7 +3467,7 @@ snapshots:
       '@zag-js/color-utils': 0.62.1
       '@zag-js/combobox': 0.62.1
       '@zag-js/date-picker': 0.62.1
-      '@zag-js/date-utils': 0.62.1(@internationalized/date@3.5.5)
+      '@zag-js/date-utils': 0.62.1(@internationalized/date@3.12.0)
       '@zag-js/dialog': 0.62.1
       '@zag-js/editable': 0.62.1
       '@zag-js/file-upload': 0.62.1
@@ -4358,9 +4366,9 @@ snapshots:
 
   '@pandacss/types@1.8.2': {}
 
-  '@park-ui/panda-preset@0.43.1(@internationalized/date@3.5.5)(@pandacss/dev@1.8.2(typescript@5.8.3))':
+  '@park-ui/panda-preset@0.43.1(@internationalized/date@3.12.0)(@pandacss/dev@1.8.2(typescript@5.8.3))':
     dependencies:
-      '@ark-ui/anatomy': 3.5.0(@internationalized/date@3.5.5)
+      '@ark-ui/anatomy': 3.5.0(@internationalized/date@3.12.0)
       '@pandacss/dev': 1.8.2(typescript@5.8.3)
       effect: 3.10.15
     transitivePeerDependencies:
@@ -5112,6 +5120,10 @@ snapshots:
       '@zag-js/popper': 1.41.1
       '@zag-js/types': 1.41.1
       '@zag-js/utils': 1.41.1
+
+  '@zag-js/date-utils@0.62.1(@internationalized/date@3.12.0)':
+    dependencies:
+      '@internationalized/date': 3.12.0
 
   '@zag-js/date-utils@0.62.1(@internationalized/date@3.5.5)':
     dependencies:
@@ -6571,6 +6583,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-react@1.17.0(react@19.1.1):
+    dependencies:
+      react: 19.1.1
 
   lz-string@1.5.0: {}
 
