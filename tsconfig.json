@@ -31,17 +31,17 @@
       "@ds-token-test/styled-system/*": [
         "./styled-system/*"
       ],
-      "@ds-token-test/styled-system-legacy": [
-        "./styled-system-legacy"
+      "@ds-token-test/styled-system-role-first": [
+        "./styled-system-role-first"
       ],
-      "@ds-token-test/styled-system-legacy/*": [
-        "./styled-system-legacy/*"
+      "@ds-token-test/styled-system-role-first/*": [
+        "./styled-system-role-first/*"
       ],
-      "@ds-token-test/styled-system-new": [
-        "./styled-system-new"
+      "@ds-token-test/styled-system-property-first": [
+        "./styled-system-property-first"
       ],
-      "@ds-token-test/styled-system-new/*": [
-        "./styled-system-new/*"
+      "@ds-token-test/styled-system-property-first/*": [
+        "./styled-system-property-first/*"
       ]
     },
     "allowJs": true
@@ -50,8 +50,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "panda.config.ts",
-    "panda.config.legacy.ts",
-    "panda.config.new.ts",
+    "panda.config.role-first.ts",
+    "panda.config.property-first.ts",
     "next.config.mjs",
     ".next/types/**/*.ts"
   ],
@@ -59,7 +59,7 @@
     "node_modules",
     ".next",
     "styled-system",
-    "styled-system-legacy",
-    "styled-system-new"
+    "styled-system-role-first",
+    "styled-system-property-first"
   ]
 }

@@ -14,7 +14,12 @@ export default defineConfig({
   jsxFramework: 'react',
   importMap: '@ds-token-test/styled-system',
   outdir: 'styled-system',
-  include: ['./src/app/role-first/**/*.{js,jsx,ts,tsx}', './src/app/property-first/**/*.{js,jsx,ts,tsx}'],
+  include: [
+    './src/app/role-first/**/*.{js,jsx,ts,tsx}',
+    './src/app/property-first/**/*.{js,jsx,ts,tsx}',
+    './src/stories/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.stories.{js,jsx,ts,tsx}',
+  ],
   theme: {
     extend: {
       tokens: {
