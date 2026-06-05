@@ -20,17 +20,18 @@
 | 파일 | 날짜 | 모델 | 토큰 체계 | 페이지 |
 |------|------|------|-----------|--------|
 | [2026-06-05_role-first_dashboard](./2026-06-05_role-first_dashboard.md) | 2026-06-05 | Claude Sonnet 4.6 | role-first | dashboard |
+| [2026-06-05_property-first_dashboard](./2026-06-05_property-first_dashboard.md) | 2026-06-05 | Claude Sonnet 4.6 | property-first | dashboard |
 
 ---
 
-## 비교 요약 _(role-first vs property-first 양쪽 완료 후 작성)_
+## 비교 요약 — dashboard (Claude Sonnet 4.6)
 
 | 항목 | role-first | property-first |
 |------|-----------|----------------|
-| role mismatch | | |
-| fg/text mismatch | | |
-| 하드코딩 | | |
-| 추론 오류 | | |
-| 시각적 동일성 | | |
+| role mismatch | 18건 | **1건** |
+| fg/text mismatch | 16건 | **4건** (icon→text 슬롯 혼용) |
+| 하드코딩 | 0건 | 0건 |
+| 추론 오류 | 없음 | 없음 |
+| 시각적 동일성 | 미진행 | 사실상 동일 (짝수 행 stripe 방식만 차이) |
 
-> 종합 의견
+> property-first는 슬롯명(`surface` / `fill` / `border` / `icon` / `text`)이 사용 위치를 명시해 role mismatch가 18→1건으로 대폭 감소했다. fg/text 혼용도 16→4건으로 줄었으며, 남은 4건은 가독성을 위한 의도적 트레이드오프다. 추론 오류(없는 토큰 창작)는 양쪽 모두 발생하지 않았다. `fill.*` hover 단계 토큰 부재는 property-first 체계의 미비 사항으로 확인됐다.
